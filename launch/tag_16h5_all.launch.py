@@ -16,7 +16,11 @@ def generate_launch_description():
         name='apriltag',
         package='apriltag_ros', plugin='AprilTagNode',
         remappings=[("/apriltag/image", "/camera"), ("/apriltag/camera_info", "/camera_info")],
+<<<<<<< HEAD
         parameters=[cfg_36h11])
+=======
+        parameters=[cfg_16h5])
+>>>>>>> d1c783c67162f01f673cac18e1191271cf271d99
     container = ComposableNodeContainer(
         name='tag_container',
         namespace='apriltag',
