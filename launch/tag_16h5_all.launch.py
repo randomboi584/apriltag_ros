@@ -4,7 +4,7 @@ from launch_ros.descriptions import ComposableNode
 
 # detect all 36h11 tags
 cfg_36h11 = {
-    "image_transport": "raw",
+    "image_transport": "compressed",
     "family": "36h11",
     "size": 0.31,
     "max_hamming": 0,
@@ -15,7 +15,7 @@ def generate_launch_description():
     composable_node = ComposableNode(
         name='apriltag',
         package='apriltag_ros', plugin='AprilTagNode',
-        remappings=[("/apriltag/image", "/tracking/image_raw/compressed"), ("/apriltag/camera_info", "/tracking/camera_info")],
+        remappings=[("/apriltag/image", "/tracking/image_raw"),("/apriltag/image/compressed", "/tracking/image_raw/compressed"), ("/apriltag/camera_info", "/tracking/camera_info")],
         parameters=[cfg_36h11])
     container = ComposableNodeContainer(
         name='tag_container',
